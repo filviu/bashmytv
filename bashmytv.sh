@@ -7,7 +7,7 @@ UNWARSS='http://www.myepisodes.com/rss.php?feed=unwatched&showignored=0&uid=xxx&
 UNQ=$(curl -s $UNAQRSS | grep '<title>\[' | sed -e 's/<[^>]\+>//g' -e 's/^[ \t]*//' -e 's/\]\[/-/g' -e 's/\[\ //g' -e 's/\ \]//g')
 UNW=$(curl -s $UNWARSS | grep '<title>\[' | sed -e 's/<[^>]\+>//g' -e 's/^[ \t]*//' -e 's/\]\[/-/g' -e 's/\[\ //g' -e 's/\ \]//g')
 
-if [ -z $UNQ ] || [ -z $UNW ]; then
+if [[ -z "$UNQ" ]] || [[ -z "$UNW" ]]; then
     echo "Something went wrong, maybe the feed address is wrong? Try running both this commands:"
     echo
     echo -e "\t curl '$UNAQRSS'"
