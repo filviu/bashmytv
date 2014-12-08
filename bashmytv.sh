@@ -17,8 +17,8 @@ if [[ -z "$UNQ" ]] && [[ -z "$UNW" ]]; then
     exit 1
 fi
 
-UNQNO=$(echo "$UNQ"|wc -l)
-UNWNO=$(echo "$UNW"|wc -l)
+UNQNO=$(echo "$UNQ"| sed '/^\s*$/d'|wc -l)
+UNWNO=$(echo "$UNW"| sed '/^\s*$/d'|wc -l)
 
 if [ "$UNWNO" = "200" ]; then UNWNO="200+"; fi		# myepisodes.com limts this feed to 200 items
 
